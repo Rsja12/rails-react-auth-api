@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   skip_before_action :authorized, only: [:create]
-  before_action :set_user, only: [:destroy]
 
   # POST /users
   def create
@@ -14,16 +13,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  def destroy
-    @user.destroy
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def user_params
